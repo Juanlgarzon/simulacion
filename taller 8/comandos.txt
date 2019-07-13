@@ -1,4 +1,4 @@
 comandos para ejecutar
 
-celular iniciales = iniciar
+celulas iniciales = iniciar
 iteracion = iterar
