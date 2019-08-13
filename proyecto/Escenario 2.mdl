@@ -1,0 +1,181 @@
+{UTF-8}
+tasa de incidencia=
+	0.02705
+	~	
+	~		|
+
+Infectados= INTEG (
+	infeccion-recuperacion-tasa de mortailidad infectados,
+		170)
+	~	persona
+	~		|
+
+nacimientos=
+	tasa de nacimiento*(Infectados+Suceptibles+Recuperados)+(tasa de incidencia*Recuperados\
+		)
+	~	
+	~		|
+
+recuperacion=
+	Infectados*Tasa de recuperacion
+	~	persona
+	~		|
+
+Recuperados= INTEG (
+	recuperacion-tasa de mortalidad de recuperados,
+		20)
+	~	persona
+	~		|
+
+Suceptibles= INTEG (
+	nacimientos-tasa de mortalidad suceptibles-infeccion,
+		150)
+	~	persona
+	~		|
+
+tasa de mortalidad de recuperados=
+	tasa de mortalidad per capita*Recuperados
+	~	
+	~		|
+
+tasa de mortalidad per capita=
+	0.1
+	~	
+	~		|
+
+tasa de mortailidad infectados=
+	tasa de mortalidad per capita*Infectados
+	~	
+	~		|
+
+tasa de nacimiento=
+	0.6
+	~	
+	~		|
+
+tasa de mortalidad suceptibles=
+	tasa de mortalidad per capita*Suceptibles
+	~	
+	~		|
+
+infeccion=
+	Tasa de contagio*Suceptibles*Infectados
+	~	
+	~		|
+
+Tasa de contagio=
+	0.33
+	~	
+	~		|
+
+Tasa de recuperacion=
+	0.7
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 6
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 0.0625
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Suceptibles,184,237,40,20,3,3,0,0,0,0,0,0
+10,2,Infectados,479,238,40,20,3,3,0,0,0,0,0,0
+10,3,Recuperados,706,225,40,20,3,3,0,0,0,0,0,0
+1,4,6,2,4,0,0,22,0,0,0,-1--1--1,,1|(397,231)|
+1,5,6,1,100,0,0,22,0,0,0,-1--1--1,,1|(283,231)|
+11,6,284,349,231,6,8,34,3,0,0,1,0,0,0
+10,7,infeccion,349,250,29,11,40,3,0,0,-1,0,0,0
+1,8,10,3,4,0,0,22,0,0,0,-1--1--1,,1|(642,227)|
+1,9,10,2,100,0,0,22,0,0,0,-1--1--1,,1|(562,227)|
+11,10,172,612,227,6,8,34,3,0,0,1,0,0,0
+10,11,recuperacion,612,246,41,11,40,3,0,0,-1,0,0,0
+10,12,Tasa de contagio,391,370,54,11,8,3,0,0,0,0,0,0
+10,13,Tasa de recuperacion,665,407,42,19,8,3,0,0,0,0,0,0
+1,14,12,6,1,0,0,0,0,64,0,-1--1--1,,1|(410,290)|
+1,15,13,10,1,0,0,0,0,64,0,-1--1--1,,1|(671,306)|
+1,16,1,7,1,0,0,0,0,64,0,-1--1--1,,1|(264,205)|
+1,17,2,11,1,0,0,0,0,64,0,-1--1--1,,1|(537,199)|
+1,18,2,6,1,0,0,0,0,64,0,-1--1--1,,1|(393,194)|
+12,19,48,21,236,10,8,0,3,0,0,-1,0,0,0
+1,20,22,1,4,0,0,22,0,0,0,-1--1--1,,1|(118,236)|
+1,21,22,19,100,0,0,22,0,0,0,-1--1--1,,1|(56,236)|
+11,22,48,87,236,6,8,34,3,0,0,1,0,0,0
+10,23,nacimientos,87,255,37,11,40,3,0,0,-1,0,0,0
+1,24,1,22,1,0,0,0,0,64,0,-1--1--1,,1|(155,211)|
+1,25,2,22,1,0,0,0,0,64,0,-1--1--1,,1|(277,133)|
+1,26,3,22,1,0,0,0,0,64,0,-1--1--1,,1|(260,93)|
+10,27,tasa de nacimiento,95,368,58,11,8,3,0,0,0,0,0,0
+1,28,27,22,1,0,0,0,0,64,0,-1--1--1,,1|(43,296)|
+12,29,48,896,234,10,8,0,3,0,0,-1,0,0,0
+1,30,32,29,4,0,0,22,0,0,0,-1--1--1,,1|(845,227)|
+1,31,32,3,100,0,0,22,0,0,0,-1--1--1,,1|(769,227)|
+11,32,48,798,227,6,8,34,3,0,0,1,0,0,0
+10,33,tasa de mortalidad de recuperados,798,254,69,19,40,3,0,0,-1,0,0,0
+10,34,tasa de mortalidad per capita,462,490,59,19,8,3,0,0,0,0,0,0
+1,35,34,32,1,0,0,0,0,64,0,-1--1--1,,1|(768,420)|
+1,36,3,32,1,0,0,0,0,64,0,-1--1--1,,1|(758,168)|
+12,37,48,481,322,10,8,0,3,0,0,-1,0,0,0
+1,38,40,37,4,0,0,22,0,0,0,-1--1--1,,1|(481,303)|
+1,39,40,2,100,0,0,22,0,0,0,-1--1--1,,1|(481,269)|
+11,40,48,481,286,8,6,33,3,0,0,4,0,0,0
+10,41,tasa de mortailidad infectados,549,286,60,19,40,3,0,0,-1,0,0,0
+12,42,48,184,340,10,8,0,3,0,0,-1,0,0,0
+1,43,45,42,4,0,0,22,0,0,0,-1--1--1,,1|(184,316)|
+1,44,45,1,100,0,0,22,0,0,0,-1--1--1,,1|(184,272)|
+11,45,48,184,294,8,6,33,3,0,0,4,0,0,0
+10,46,tasa de mortalidad suceptibles,251,294,59,19,40,3,0,0,-1,0,0,0
+1,47,34,40,1,0,0,0,0,64,0,-1--1--1,,1|(535,390)|
+1,48,34,45,1,0,0,0,0,64,0,-1--1--1,,1|(300,437)|
+1,49,2,40,1,0,0,0,0,64,0,-1--1--1,,1|(424,259)|
+1,50,1,45,1,0,0,0,0,64,0,-1--1--1,,1|(260,259)|
+10,51,tasa de incidencia,95,73,55,11,8,3,0,0,0,0,0,0
+1,52,51,22,1,0,0,0,0,64,0,-1--1--1,,1|(48,157)|
+///---\\\
+:L<%^E!@
+1:Current.vdf
+1:C:\Users\adcam\OneDrive\Documentos\sir\Current.vdf
+9:Current
+23:0
+15:0,0,0,1,0,0
+19:100,0
+27:0,
+34:0,
+4:Time
+5:Recuperados
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:0
+24:0
+25:6
+26:6
